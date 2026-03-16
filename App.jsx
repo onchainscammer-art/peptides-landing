@@ -22,16 +22,15 @@ body { background: #1a1a1a; font-family: var(--barlow-reg); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: flex-start;
+  padding: 0;
   background: #111;
 }
 
-/* ── MAGAZINE SHELL ── */
 .magazine {
   width: 100%;
   max-width: 900px;
-  aspect-ratio: 7/9;
+  height: 100svh;
   position: relative;
   box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
   overflow: hidden;
@@ -661,8 +660,11 @@ body { background: #1a1a1a; font-family: var(--barlow-reg); }
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  padding: 14px 0 6px;
+  width: 100%;
+  background: #111;
 }
+
 .nav-btn {
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.15);
@@ -694,6 +696,7 @@ body { background: #1a1a1a; font-family: var(--barlow-reg); }
   width: 18px;
   border-radius: 3px;
 }
+
 .page-label {
   font-family: var(--barlow);
   font-size: 9px;
@@ -701,7 +704,9 @@ body { background: #1a1a1a; font-family: var(--barlow-reg); }
   text-transform: uppercase;
   color: rgba(255,255,255,0.3);
   text-align: center;
-  margin-top: 8px;
+  padding-bottom: 10px;
+  background: #111;
+  width: 100%;
 }
 `;
 
