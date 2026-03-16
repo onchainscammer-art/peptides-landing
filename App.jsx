@@ -15,7 +15,7 @@ const css = `
   --barlow: 'Barlow Condensed', sans-serif;
   --barlow-reg: 'Barlow', sans-serif;
 }
-body { background: #1a1a1a; font-family: var(--barlow-reg); }
+body { background: #111; font-family: var(--barlow-reg); }
 
 .stage {
   min-height: 100vh;
@@ -24,7 +24,8 @@ body { background: #1a1a1a; font-family: var(--barlow-reg); }
   align-items: center;
   justify-content: flex-start;
   padding: 0;
-  background: #111;
+  background: #111 url('/peptard.jpg') center center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .magazine {
