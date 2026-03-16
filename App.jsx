@@ -35,7 +35,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   position: relative;
   box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
   overflow: hidden;
-  background: var(--paper);
+  background: transparent;
 }
 
 .spread {
@@ -43,7 +43,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   inset: 0;
   display: flex;
   flex-direction: column;
-  background: var(--paper);
+  background: transparent;
   transition: transform 0.5s cubic-bezier(0.77,0,0.175,1), opacity 0.4s ease;
 }
 .spread.active  { transform: translateX(0);     opacity: 1; pointer-events: all; }
@@ -67,7 +67,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 1: COVER ── */
 .cover {
-  background: var(--paper);
+  background: rgba(248,246,241,0.6);
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
@@ -159,7 +159,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 .cover-hero-img {
   width: 100%;
   flex: 1;
-  background: var(--ink);
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,6 +243,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 2: FEATURE ARTICLE ── */
 .feature {
+  background: rgba(248,246,241,0.6);
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
@@ -398,6 +399,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 3: PROTOCOL / WELLNESS ── */
 .protocol-spread {
+  background: rgba(248,246,241,0.6);
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
@@ -432,7 +434,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 }
 
 .protocol-main { padding: 20px 24px; }
-.protocol-sidebar { padding: 20px 20px; background: var(--ink); color: var(--white); }
+.protocol-sidebar { padding: 20px 20px; background: rgba(10,10,10,0.75); color: var(--white); }
 .protocol-div { background: var(--rule); }
 
 .protocol-title {
@@ -520,7 +522,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 4: BUY ── */
 .buy-spread {
-  background: var(--blue);
+  background: rgba(0,51,204,0.75);
   color: var(--white);
   display: grid;
   grid-template-rows: auto 1fr auto;
