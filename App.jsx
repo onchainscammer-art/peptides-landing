@@ -742,7 +742,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 @media (max-width: 768px) {
   .stage {
     background-attachment: scroll;
-    background-position: 25% 72%;
+    background-position: 75% 72%;
   }
 }
 `;
