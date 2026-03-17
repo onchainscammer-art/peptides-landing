@@ -68,7 +68,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 1: COVER ── */
 .cover {
-  background: rgba(248,246,241,0.6);
+  background: rgba(248,246,241,0.82);
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
@@ -244,7 +244,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 2: FEATURE ARTICLE ── */
 .feature {
-  background: rgba(248,246,241,0.6);
+  background: rgba(248,246,241,0.82);
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
@@ -425,7 +425,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 /* ── SPREAD 3: PROTOCOL / WELLNESS ── */
 .protocol-spread {
-  background: rgba(248,246,241,0.6);
+  background: rgba(248,246,241,0.82);
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
@@ -744,6 +744,12 @@ body { background: #111; font-family: var(--barlow-reg); }
     background-attachment: scroll;
     background-position: 75% 72%;
   }
+  .feature-body {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .feature-col-div { display: none; }
+  .feature-col { padding: 16px 18px; overflow: visible; }
 }
 `;
 
@@ -797,7 +803,7 @@ const PAGES = [
           </div>
           <div className="cover-center">
             <div className="cover-hero-img" style={{flex:1}}>
-              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1}}>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1,background:"rgba(0,0,0,0.45)",backdropFilter:"blur(2px)"}}>
                 <div style={{fontFamily:"var(--barlow)",fontSize:8,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"rgba(255,255,255,0.3)",border:"1px solid rgba(255,255,255,0.15)",padding:"4px 10px"}}>Cover Star Refused Interview</div>
                 <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.6vw,13px)",fontStyle:"italic",color:"rgba(255,255,255,0.6)",lineHeight:1.6,maxWidth:200}}>
                   He agreed to appear on the cover.<br />
