@@ -890,9 +890,16 @@ const PAGES = [
             ))}
           </div>
           <div className="cover-center">
-            <div className="cover-hero-img" style={{flex:1}} onClick={onInject}>
-              <div className="inject-zone">
-                <div className="inject-hint">💉 Inject to read</div>
+            <div className="cover-hero-img" style={{flex:1}}>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1,background:"rgba(0,0,0,0.45)",backdropFilter:"blur(2px)"}}>
+                <div style={{fontFamily:"var(--barlow)",fontSize:8,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"rgba(255,255,255,0.3)",border:"1px solid rgba(255,255,255,0.15)",padding:"4px 10px"}}>Cover Star Refused Interview</div>
+                <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.6vw,13px)",fontStyle:"italic",color:"rgba(255,255,255,0.6)",lineHeight:1.6,maxWidth:200}}>
+                  He agreed to appear on the cover.<br />
+                  He did not agree to put down the vial<br />
+                  for the photograph.<br />
+                  We went to print anyway.<br />
+                  This is his vial. He is behind it.
+                </div>
               </div>
             </div>
             <div className="cover-quote-block">
