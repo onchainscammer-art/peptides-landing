@@ -877,25 +877,14 @@ const PAGES = [
           </div>
           <div className="feature-col-div" />
           <div className="feature-col">
-            <div className="img-placeholder" style={{height:"38%"}}>
-              <div className="img-unavailable">Photo Unavailable</div>
-              <div className="img-editorial">
-                Subject declined to be photographed.<br />
-                Subject was, at time of press, holding the vial.<br />
-                Photographer asked subject to put down the vial.<br />
-                Subject left the room.
-              </div>
-              <div className="img-caption">— Photo desk, PEPTARD Magazine</div>
+            <div style={{height:"38%", width:"100%", marginBottom:8, overflow:"hidden", position:"relative"}}>
+              <img src="/fig1.jpg" alt="Fig. 1" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top", display:"block"}} />
             </div>
             <p className="body-p" style={{marginTop:12}}>
               His girlfriend called it "the peptides thing." He called it "a philosophical disagreement about recovery science." The vial was not put down.
             </p>
-            <div className="img-placeholder" style={{height:"28%", marginTop:8}}>
-              <div className="img-unavailable">Illustration: The Whiteboard</div>
-              <div className="img-editorial">
-                Gym ✓ &nbsp; Cold Shower ✓ &nbsp; Peptides ✓ &nbsp; Grind ✓<br />
-                Not shown: his girlfriend's face.
-              </div>
+            <div style={{height:"28%", width:"100%", marginTop:8, overflow:"hidden", position:"relative"}}>
+              <img src="/fig2.jpg" alt="Fig. 2" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", display:"block"}} />
             </div>
           </div>
         </div>
