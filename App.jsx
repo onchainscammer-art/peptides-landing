@@ -18,7 +18,7 @@ const css = `
 body { background: #111; font-family: var(--barlow-reg); }
 
 .stage {
-  min-height: 100vh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +31,8 @@ body { background: #111; font-family: var(--barlow-reg); }
 .magazine {
   width: 100%;
   max-width: 900px;
-  height: 100svh;
+  flex: 1;
+  min-height: 0;
   position: relative;
   box-shadow: 0 40px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
   overflow: hidden;
