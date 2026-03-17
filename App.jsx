@@ -195,7 +195,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 }
 
 .cover-quote-block {
-  background: var(--blue);
+  background: rgba(0,51,204,0.75);
   color: var(--white);
   padding: 14px 16px;
   width: 100%;
@@ -369,7 +369,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 
 .img-placeholder {
   width: 100%;
-  background: var(--ink);
+  background: rgba(10,10,10,0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
