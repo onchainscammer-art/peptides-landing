@@ -975,7 +975,7 @@ const PAGES = [
           </div>
           <div className="feature-col-div" />
           <div className="feature-col">
-            <div style={{height:"38%", width:"100%", marginBottom:8, overflow:"hidden", position:"relative"}}>
+            <div style={{width:"100%", aspectRatio:"4/3", marginBottom:8, overflow:"hidden", position:"relative"}}>
               <img src="/fig1.jpg" alt="Fig. 1" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top", display:"block"}} />
             </div>
             <p className="body-p" style={{marginTop:12}}>
@@ -984,7 +984,7 @@ const PAGES = [
             <p className="body-p">
               What is undeniable: the vial was labeled PEPTIDES. It was held at eye level. It was not put down.
             </p>
-            <div style={{height:"28%", width:"100%", marginTop:8, overflow:"hidden", position:"relative"}}>
+            <div style={{width:"100%", aspectRatio:"16/9", marginTop:8, overflow:"hidden", position:"relative"}}>
               <img src="/fig2.jpg" alt="Fig. 2" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", display:"block"}} />
             </div>
           </div>
