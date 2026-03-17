@@ -371,12 +371,14 @@ body { background: #111; font-family: var(--barlow-reg); }
   background: var(--ink);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
   margin-bottom: 8px;
   position: relative;
   overflow: hidden;
+  text-align: center;
+  gap: 8px;
 }
 .img-placeholder::after {
   content: '';
@@ -387,11 +389,34 @@ body { background: #111; font-family: var(--barlow-reg); }
     rgba(255,255,255,0.02) 4px, rgba(255,255,255,0.02) 5px
   );
 }
+.img-unavailable {
+  font-family: var(--barlow);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 4px 10px;
+  position: relative;
+  z-index: 1;
+}
+.img-editorial {
+  font-family: var(--cormorant);
+  font-size: clamp(9px, 1.6vw, 12px);
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  max-width: 220px;
+}
 .img-caption {
   font-family: var(--barlow);
   font-size: 8px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.3);
   letter-spacing: 1px;
+  text-transform: uppercase;
   position: relative;
   z-index: 1;
   font-style: italic;
@@ -763,7 +788,16 @@ const PAGES = [
           </div>
           <div className="cover-center">
             <div className="cover-hero-img" style={{flex:1}}>
-              <div className="cover-hero-text">PEPT</div>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1}}>
+                <div style={{fontFamily:"var(--barlow)",fontSize:8,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"rgba(255,255,255,0.3)",border:"1px solid rgba(255,255,255,0.15)",padding:"4px 10px"}}>Cover Star Refused Interview</div>
+                <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.6vw,13px)",fontStyle:"italic",color:"rgba(255,255,255,0.6)",lineHeight:1.6,maxWidth:200}}>
+                  He agreed to appear on the cover.<br />
+                  He did not agree to put down the vial<br />
+                  for the photograph.<br />
+                  We went to print anyway.<br />
+                  This is his vial. He is behind it.
+                </div>
+              </div>
             </div>
             <div className="cover-quote-block">
               <div className="cover-quote-text">"I need my peptides."</div>
@@ -838,7 +872,14 @@ const PAGES = [
           <div className="feature-col-div" />
           <div className="feature-col">
             <div className="img-placeholder" style={{height:"38%"}}>
-              <div className="img-caption">Fig. 1 — Subject at desk. Note: trading chart (red). Vial (present). Tears (visible). Protocol (continuing).</div>
+              <div className="img-unavailable">Photo Unavailable</div>
+              <div className="img-editorial">
+                Subject declined to be photographed.<br />
+                Subject was, at time of press, holding the vial.<br />
+                Photographer asked subject to put down the vial.<br />
+                Subject left the room.
+              </div>
+              <div className="img-caption">— Photo desk, PEPTARD Magazine</div>
             </div>
             <p className="body-p" style={{marginTop:12}}>
               His girlfriend described the kitchen confrontation as "the peptides thing." He described it as "a philosophical disagreement about recovery science." Neither party could confirm the other's account.
@@ -847,7 +888,12 @@ const PAGES = [
               What is undeniable: the vial was labeled PEPTIDES. It was held at eye level. It was not put down.
             </p>
             <div className="img-placeholder" style={{height:"28%", marginTop:8}}>
-              <div className="img-caption">Fig. 2 — The whiteboard. Gym ✓. Cold shower ✓. Peptides ✓. Grind: ongoing.</div>
+              <div className="img-unavailable">Illustration: The Whiteboard</div>
+              <div className="img-editorial">
+                Gym ✓ &nbsp; Cold Shower ✓ &nbsp; Peptides ✓ &nbsp; Grind ✓<br />
+                The only legally binding document our subject respects.<br />
+                Not shown: his girlfriend's face.
+              </div>
             </div>
             <p className="body-p" style={{marginTop:10, fontSize:"clamp(9px,1.5vw,11px)", color:"var(--mid)"}}>
               <em>$PEPTARD is a cultural document. Not financial advice. Not medical advice. The editors are not responsible for any injections made in the vicinity of a red trading chart.</em>
@@ -896,6 +942,10 @@ const PAGES = [
           </div>
           <div className="protocol-div" />
           <div className="protocol-sidebar">
+            <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.5vw,11px)",fontStyle:"italic",color:"rgba(255,255,255,0.4)",lineHeight:1.6,marginBottom:14,paddingBottom:14,borderBottom:"1px solid rgba(255,255,255,0.1)"}}>
+              [Clinical Diagram Pending]<br />
+              We asked a doctor to illustrate the mechanism of action. The doctor said no. We asked again. The doctor hung up. The protocol continues without him.
+            </div>
             <span className="sidebar-label">By the numbers</span>
             <div className="sidebar-hl">
               "She said I didn't need them. I have four vials and a whiteboard that disagrees."
