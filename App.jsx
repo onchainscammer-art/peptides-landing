@@ -738,6 +738,13 @@ body { background: #111; font-family: var(--barlow-reg); }
   width: 100%;
   text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
+
+@media (max-width: 768px) {
+  .stage {
+    background-attachment: scroll;
+    background-position: center 72%;
+  }
+}
 `;
 
 const CA = "PASTE_YOUR_CA_HERE";
