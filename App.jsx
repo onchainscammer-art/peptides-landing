@@ -4,6 +4,7 @@ const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Cormorant+G
 
 const css = `
 * { box-sizing: border-box; margin: 0; padding: 0; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext y='40' font-size='40'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E"), auto; }
+*:active, button:active { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext y='40' font-size='40'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E"), auto; }
 :root {
   --ink: #0a0a0a;
   --paper: #f8f6f1;
@@ -24,7 +25,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   align-items: center;
   justify-content: flex-start;
   padding: 0;
-  background: #111 url('/peptard.jpg') center center / cover no-repeat;
+  background: #111 url('/peptard.jpg') center 65% / cover no-repeat;
   background-attachment: fixed;
 }
 
@@ -44,11 +45,11 @@ body { background: #111; font-family: var(--barlow-reg); }
   display: flex;
   flex-direction: column;
   background: transparent;
-  transition: transform 0.5s cubic-bezier(0.77,0,0.175,1), opacity 0.4s ease;
+  transition: opacity 0.5s ease;
 }
-.spread.active  { transform: translateX(0);     opacity: 1; pointer-events: all; }
-.spread.prev    { transform: translateX(-100%);  opacity: 0; pointer-events: none; }
-.spread.next    { transform: translateX(100%);   opacity: 0; pointer-events: none; }
+.spread.active  { opacity: 1; pointer-events: all; }
+.spread.prev    { opacity: 0; pointer-events: none; }
+.spread.next    { opacity: 0; pointer-events: none; }
 
 /* ── SHARED FURNITURE ── */
 .rule-h { width: 100%; height: 1px; background: var(--rule); }
@@ -690,7 +691,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   gap: 20px;
   padding: 14px 0 6px;
   width: 100%;
-  background: #111;
+  background: transparent;
 }
 
 .nav-btn {
@@ -730,11 +731,12 @@ body { background: #111; font-family: var(--barlow-reg); }
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
   text-align: center;
   padding-bottom: 10px;
-  background: #111;
+  background: transparent;
   width: 100%;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 `;
 
