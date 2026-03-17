@@ -726,6 +726,32 @@ body { background: #111; font-family: var(--barlow-reg); }
   border-radius: 3px;
 }
 
+.inject-zone {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.inject-hint {
+  font-family: var(--barlow);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0);
+  border: 1px solid rgba(255,255,255,0);
+  padding: 6px 14px;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.inject-zone:hover .inject-hint {
+  color: rgba(255,255,255,0.8);
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.5);
+}
+
 .page-label {
   font-family: var(--barlow);
   font-size: 9px;
@@ -767,7 +793,7 @@ const PAGES = [
   {
     id: "cover",
     label: "Cover",
-    render: () => (
+    render: ({ onInject }) => (
       <div className="cover" style={{height:"100%"}}>
         <div className="cover-header">
           <div className="cover-meta">
@@ -796,16 +822,9 @@ const PAGES = [
             ))}
           </div>
           <div className="cover-center">
-            <div className="cover-hero-img" style={{flex:1}}>
-              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1,background:"rgba(0,0,0,0.45)",backdropFilter:"blur(2px)"}}>
-                <div style={{fontFamily:"var(--barlow)",fontSize:8,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"rgba(255,255,255,0.3)",border:"1px solid rgba(255,255,255,0.15)",padding:"4px 10px"}}>Cover Star Refused Interview</div>
-                <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.6vw,13px)",fontStyle:"italic",color:"rgba(255,255,255,0.6)",lineHeight:1.6,maxWidth:200}}>
-                  He agreed to appear on the cover.<br />
-                  He did not agree to put down the vial<br />
-                  for the photograph.<br />
-                  We went to print anyway.<br />
-                  This is his vial. He is behind it.
-                </div>
+            <div className="cover-hero-img" style={{flex:1}} onClick={onInject}>
+              <div className="inject-zone">
+                <div className="inject-hint">💉 Inject to read</div>
               </div>
             </div>
             <div className="cover-quote-block">
@@ -1022,7 +1041,7 @@ export default function App() {
         <div className="magazine">
           {PAGES.map((p, i) => (
             <div key={p.id} className={`spread ${getState(i)}`}>
-              {p.render({ copied, onCopy: handleCopy })}
+              {p.render({ copied, onCopy: handleCopy, onInject: () => setPage(1) })}
             </div>
           ))}
         </div>
