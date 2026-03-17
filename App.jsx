@@ -726,6 +726,75 @@ body { background: #111; font-family: var(--barlow-reg); }
   border-radius: 3px;
 }
 
+/* ── ENTRY SCREEN (desktop only) ── */
+.entry-screen {
+  position: fixed;
+  inset: 0;
+  background: #111 url('/peptard.jpg') center 20% / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 999;
+  transition: opacity 0.6s ease;
+}
+.entry-screen.fade-out { opacity: 0; pointer-events: none; }
+.entry-masthead {
+  font-family: var(--barlow);
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 100px);
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 32px 0 0;
+  text-align: center;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+}
+.entry-masthead span { color: var(--blue); }
+.entry-face-zone {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.entry-hint {
+  font-family: var(--barlow);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0);
+  border: 1px solid rgba(255,255,255,0);
+  padding: 8px 18px;
+  transition: all 0.3s ease;
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+}
+.entry-face-zone:hover .entry-hint {
+  color: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.55);
+}
+.entry-label {
+  position: absolute;
+  bottom: 32px;
+  font-family: var(--barlow);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+}
+@media (max-width: 768px) {
+  .entry-screen { display: none; }
+}
+
 .inject-zone {
   position: absolute;
   inset: 0;
@@ -883,16 +952,19 @@ const PAGES = [
             </div>
             <div className="rule-h" style={{marginBottom:14}}/>
             <p className="dropcap-p">
-              He woke up at 5am. Not because an alarm — because the protocol demanded it. Gym. Cold Shower. Peptides. Grind.
+              He woke up at 5am. Not because an alarm went off — because the protocol demanded it. On a whiteboard above his trading desk, in handwriting that suggested both confidence and mild sleep deprivation: Gym. Cold Shower. Peptides. Grind.
             </p>
             <p className="body-p">
-              By 9am, the account had lost $13,678. He looked at the chart. He looked at the vial. He injected anyway. This, sources confirm, is the peptard difference.
+              By 9am, the trading account had lost $13,678. He looked at the chart. He looked at the vial. He injected anyway. This, sources close to the situation confirm, is the peptard difference.
             </p>
             <div className="pull-quote">
               <div className="pull-quote-text">
-                "The protocol does not care about <span>your P&L.</span>"
+                "The protocol does not care about <span>your P&L.</span> It only cares about the protocol."
               </div>
             </div>
+            <p className="body-p">
+              When asked whether the peptides were helping, he held up the vial. When asked whether the trading losses were concerning, he held up the vial. When asked to please put the vial down, he left the room.
+            </p>
           </div>
           <div className="feature-col-div" />
           <div className="feature-col">
@@ -900,7 +972,10 @@ const PAGES = [
               <img src="/fig1.jpg" alt="Fig. 1" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top", display:"block"}} />
             </div>
             <p className="body-p" style={{marginTop:12}}>
-              His girlfriend called it "the peptides thing." He called it "a philosophical disagreement about recovery science." The vial was not put down.
+              His girlfriend described the kitchen confrontation as "the peptides thing." He described it as "a philosophical disagreement about recovery science." Neither party could confirm the other's account.
+            </p>
+            <p className="body-p">
+              What is undeniable: the vial was labeled PEPTIDES. It was held at eye level. It was not put down.
             </p>
             <div style={{height:"28%", width:"100%", marginTop:8, overflow:"hidden", position:"relative"}}>
               <img src="/fig2.jpg" alt="Fig. 2" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", display:"block"}} />
@@ -1021,6 +1096,17 @@ const PAGES = [
 export default function App() {
   const [page, setPage] = useState(0);
   const [copied, setCopied] = useState(false);
+  const [entered, setEntered] = useState(false);
+  const [fadingOut, setFadingOut] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(max-width: 768px)').matches) setEntered(true);
+  }, []);
+
+  const handleInject = () => {
+    setFadingOut(true);
+    setTimeout(() => setEntered(true), 600);
+  };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(CA).catch(() => {});
@@ -1037,6 +1123,15 @@ export default function App() {
   return (
     <>
       <style>{FONTS}{css}</style>
+      {!entered && (
+        <div className={`entry-screen${fadingOut ? ' fade-out' : ''}`}>
+          <div className="entry-masthead">PEPT<span>A</span>RD</div>
+          <div className="entry-face-zone" onClick={handleInject}>
+            <div className="entry-hint">💉 Inject to enter</div>
+          </div>
+          <div className="entry-label">$PEPTARD — Solana Network</div>
+        </div>
+      )}
       <div className="stage">
         <div className="magazine">
           {PAGES.map((p, i) => (
