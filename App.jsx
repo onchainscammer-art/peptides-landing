@@ -851,7 +851,7 @@ const PAGES = [
           <div className="feature-col">
             <div className="feature-headline">
               The Man, The Vial,<br />
-              <em>The Whiteboard</em>
+              <em>The Legend</em>
             </div>
             <div className="feature-deck">
               An investigation into what happens when a man discovers peptides, loses $14,000 on a trade, and still — somehow — considers the day a win.
