@@ -1076,7 +1076,6 @@ const PAGES = [
           <div className="buy-links">
             <button className="buy-link primary" onClick={() => window.open(JUPITER, '_blank')}>Buy on Jupiter</button>
             <button className="buy-link" onClick={() => window.open(DEX, '_blank')}>View Chart</button>
-            <button className="buy-link" onClick={() => window.open(TG, '_blank')}>Telegram</button>
           </div>
           <div className="buy-ca">
             <div>
