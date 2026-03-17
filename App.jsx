@@ -744,12 +744,6 @@ body { background: #111; font-family: var(--barlow-reg); }
     background-attachment: scroll;
     background-position: 75% 72%;
   }
-  .feature-body {
-    grid-template-columns: 1fr;
-    overflow-y: auto;
-  }
-  .feature-col-div { display: none; }
-  .feature-col { padding: 16px 18px; overflow: visible; }
 }
 `;
 
@@ -870,19 +864,16 @@ const PAGES = [
             </div>
             <div className="rule-h" style={{marginBottom:14}}/>
             <p className="dropcap-p">
-              He woke up at 5am. Not because an alarm went off — because the protocol demanded it. On a whiteboard above his trading desk, in handwriting that suggested both confidence and mild sleep deprivation: Gym. Cold Shower. Peptides. Grind.
+              He woke up at 5am. Not because an alarm — because the protocol demanded it. Gym. Cold Shower. Peptides. Grind.
             </p>
             <p className="body-p">
-              By 9am, the trading account had lost $13,678. He looked at the chart. He looked at the vial. He injected anyway. This, sources close to the situation confirm, is the peptard difference.
+              By 9am, the account had lost $13,678. He looked at the chart. He looked at the vial. He injected anyway. This, sources confirm, is the peptard difference.
             </p>
             <div className="pull-quote">
               <div className="pull-quote-text">
-                "The protocol does not care about <span>your P&L.</span> It only cares about the protocol."
+                "The protocol does not care about <span>your P&L.</span>"
               </div>
             </div>
-            <p className="body-p">
-              When asked whether the peptides were helping, he held up the vial. When asked whether the trading losses were concerning, he held up the vial. When asked to please put the vial down, he left the room.
-            </p>
           </div>
           <div className="feature-col-div" />
           <div className="feature-col">
@@ -897,22 +888,15 @@ const PAGES = [
               <div className="img-caption">— Photo desk, PEPTARD Magazine</div>
             </div>
             <p className="body-p" style={{marginTop:12}}>
-              His girlfriend described the kitchen confrontation as "the peptides thing." He described it as "a philosophical disagreement about recovery science." Neither party could confirm the other's account.
-            </p>
-            <p className="body-p">
-              What is undeniable: the vial was labeled PEPTIDES. It was held at eye level. It was not put down.
+              His girlfriend called it "the peptides thing." He called it "a philosophical disagreement about recovery science." The vial was not put down.
             </p>
             <div className="img-placeholder" style={{height:"28%", marginTop:8}}>
               <div className="img-unavailable">Illustration: The Whiteboard</div>
               <div className="img-editorial">
                 Gym ✓ &nbsp; Cold Shower ✓ &nbsp; Peptides ✓ &nbsp; Grind ✓<br />
-                The only legally binding document our subject respects.<br />
                 Not shown: his girlfriend's face.
               </div>
             </div>
-            <p className="body-p" style={{marginTop:10, fontSize:"clamp(9px,1.5vw,11px)", color:"var(--mid)"}}>
-              <em>$PEPTARD is a cultural document. Not financial advice. Not medical advice. The editors are not responsible for any injections made in the vicinity of a red trading chart.</em>
-            </p>
           </div>
         </div>
       </div>
