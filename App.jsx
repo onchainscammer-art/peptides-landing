@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500&display=swap');`;
 
 const css = `
-* { box-sizing: border-box; margin: 0; padding: 0; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E"), auto; }
+* { box-sizing: border-box; margin: 0; padding: 0; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext y='40' font-size='40'%3E%F0%9F%92%89%3C/text%3E%3C/svg%3E"), auto; }
 :root {
   --ink: #0a0a0a;
   --paper: #f8f6f1;
