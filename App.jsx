@@ -897,6 +897,17 @@ body { background: #111; font-family: var(--barlow-reg); }
 @media (max-width: 768px) {
   .entry-screen { display: none; }
 }
+@media (min-width: 769px) {
+  .lab-entry { padding: 22px 0; }
+  .lab-entry-title { font-size: 30px; }
+  .lab-entry-num { font-size: 11px; }
+  .lab-meta-value { font-size: 14px; }
+  .lab-meta-label { font-size: 9px; }
+  .lab-meta { gap: 28px; margin-bottom: 14px; }
+  .lab-copy { font-size: 16px; line-height: 1.7; margin-bottom: 10px; }
+  .lab-translation { font-size: 15px; }
+  .lab-translation strong { font-size: 9px; }
+}
 
 .inject-zone {
   position: absolute;
