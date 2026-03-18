@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500&display=swap');`;
 
@@ -1331,6 +1331,7 @@ export default function App() {
   const [entryPhase, setEntryPhase] = useState(0); // 0=guy, 1=girl, 2=magazine
   const [fading, setFading] = useState(false);
   const [needleFlash, setNeedleFlash] = useState(null);
+  const audioRef = useRef(null);
 
   const handleZoneClick = (e, nextPhase) => {
     const x = e.clientX;
@@ -1338,6 +1339,9 @@ export default function App() {
     setNeedleFlash({ x, y });
     setTimeout(() => setNeedleFlash(null), 900);
     setFading(true);
+    if (nextPhase === 1 && audioRef.current) {
+      audioRef.current.play().catch(() => {});
+    }
     setTimeout(() => { setFading(false); setEntryPhase(nextPhase); }, 600);
   };
 
@@ -1356,6 +1360,7 @@ export default function App() {
   return (
     <>
       <style>{FONTS}{css}</style>
+      <audio ref={audioRef} src="/track.mp3" loop />
 
       {/* needle flash on tap */}
       {needleFlash && (
