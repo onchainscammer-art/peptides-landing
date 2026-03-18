@@ -1365,7 +1365,7 @@ export default function App() {
         <div className={`pre-screen guy-screen${fading ? ' fade-out' : ''}`}>
           <div className="entry-masthead">PEPT<span>A</span>RD</div>
           {/* mouth inject zone — desktop ~(47%, 60%), mobile ~(20%, 51%) */}
-          <div className="inject-zone-abs" style={{top:'57%',left:'46%'}} onClick={e => handleZoneClick(e, 1)}>
+          <div className="inject-zone-abs" style={{top:'48%',left:'53%'}} onClick={e => handleZoneClick(e, 1)}>
             <div className="inject-btn">💉 Inject Here</div>
             <div className="inject-arrow-line" />
             <div className="inject-arrow-tip" />
