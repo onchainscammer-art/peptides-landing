@@ -726,19 +726,26 @@ body { background: #111; font-family: var(--barlow-reg); }
   border-radius: 3px;
 }
 
-/* ── ENTRY SCREEN (desktop only) ── */
-.entry-screen {
+/* ── ENTRY SCREENS ── */
+.pre-screen {
   position: fixed;
   inset: 0;
-  background: #111 url('/peptard.jpg') center 20% / cover no-repeat;
+  z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  z-index: 999;
   transition: opacity 0.6s ease;
 }
-.entry-screen.fade-out { opacity: 0; pointer-events: none; }
+.pre-screen.fade-out { opacity: 0; pointer-events: none; }
+
+.guy-screen {
+  background: #111 url('/peptard.jpg') center 35% / cover no-repeat;
+}
+.girl-screen {
+  background: #111 url('/girl2.jpg') center 65% / cover no-repeat;
+}
+
 .entry-masthead {
   font-family: var(--barlow);
   font-weight: 900;
@@ -752,35 +759,51 @@ body { background: #111; font-family: var(--barlow-reg); }
   text-shadow: 0 2px 20px rgba(0,0,0,0.8);
 }
 .entry-masthead span { color: var(--blue); }
-.entry-face-zone {
+
+.inject-zone-abs {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 340px;
-  height: 55%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0;
 }
-.entry-hint {
+.inject-btn {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
   font-family: var(--barlow);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0);
-  border: 1px solid rgba(255,255,255,0);
-  padding: 8px 18px;
-  transition: all 0.3s ease;
-  background: rgba(0,0,0,0);
-  pointer-events: none;
+  padding: 8px 16px;
+  white-space: nowrap;
+  animation: injectPulse 2s ease-in-out infinite;
 }
-.entry-face-zone:hover .entry-hint {
-  color: rgba(255,255,255,0.9);
-  border-color: rgba(255,255,255,0.5);
-  background: rgba(0,0,0,0.55);
+@keyframes injectPulse {
+  0%, 100% { border-color: rgba(255,255,255,0.4); box-shadow: none; }
+  50% { border-color: rgba(255,255,255,0.9); box-shadow: 0 0 14px rgba(255,255,255,0.35); }
 }
+.inject-arrow-line {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.5);
+}
+.inject-arrow-tip {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid rgba(255,255,255,0.5);
+}
+
+@keyframes needlePop {
+  0%   { opacity: 0; transform: scale(0.3) rotate(-45deg); }
+  25%  { opacity: 1; transform: scale(1.8) rotate(-10deg); }
+  75%  { opacity: 1; transform: scale(1.4) rotate(-10deg); }
+  100% { opacity: 0; transform: scale(0.6) rotate(-10deg); }
+}
+
 .entry-label {
   position: absolute;
   bottom: 32px;
@@ -790,6 +813,12 @@ body { background: #111; font-family: var(--barlow-reg); }
   text-transform: uppercase;
   color: rgba(255,255,255,0.3);
   text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+}
+
+/* mobile adjustments for entry screens */
+@media (max-width: 768px) {
+  .guy-screen  { background-position: 70% 55%; }
+  .girl-screen { background-position: center 62%; }
 }
 
 /* ── SPREAD: LAB NOTES ── */
@@ -893,9 +922,6 @@ body { background: #111; font-family: var(--barlow-reg); }
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-right: 4px;
-}
-@media (max-width: 768px) {
-  .entry-screen { display: none; }
 }
 @media (min-width: 769px) {
   .lab-entry { padding: 22px 0; }
@@ -1300,16 +1326,17 @@ const PAGES = [
 export default function App() {
   const [page, setPage] = useState(0);
   const [copied, setCopied] = useState(false);
-  const [entered, setEntered] = useState(false);
-  const [fadingOut, setFadingOut] = useState(false);
+  const [entryPhase, setEntryPhase] = useState(0); // 0=guy, 1=girl, 2=magazine
+  const [fading, setFading] = useState(false);
+  const [needleFlash, setNeedleFlash] = useState(null);
 
-  useEffect(() => {
-    if (window.matchMedia('(max-width: 768px)').matches) setEntered(true);
-  }, []);
-
-  const handleInject = () => {
-    setFadingOut(true);
-    setTimeout(() => setEntered(true), 600);
+  const handleZoneClick = (e, nextPhase) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    setNeedleFlash({ x, y });
+    setTimeout(() => setNeedleFlash(null), 900);
+    setFading(true);
+    setTimeout(() => { setFading(false); setEntryPhase(nextPhase); }, 600);
   };
 
   const handleCopy = () => {
@@ -1327,16 +1354,40 @@ export default function App() {
   return (
     <>
       <style>{FONTS}{css}</style>
-      {!entered && (
-        <div className={`entry-screen${fadingOut ? ' fade-out' : ''}`}>
+
+      {/* needle flash on tap */}
+      {needleFlash && (
+        <div style={{position:'fixed',left:needleFlash.x-24,top:needleFlash.y-32,fontSize:48,zIndex:9999,pointerEvents:'none',animation:'needlePop 0.9s ease forwards'}}>💉</div>
+      )}
+
+      {/* PHASE 0 — guy screen */}
+      {entryPhase === 0 && (
+        <div className={`pre-screen guy-screen${fading ? ' fade-out' : ''}`}>
           <div className="entry-masthead">PEPT<span>A</span>RD</div>
-          <div className="entry-face-zone" onClick={handleInject}>
-            <div className="entry-hint">💉 Inject to enter</div>
+          {/* mouth inject zone — desktop ~(47%, 60%), mobile ~(20%, 51%) */}
+          <div className="inject-zone-abs" style={{top:'54%',left:'42%'}} onClick={e => handleZoneClick(e, 1)}>
+            <div className="inject-btn">💉 Inject Here</div>
+            <div className="inject-arrow-line" />
+            <div className="inject-arrow-tip" />
           </div>
           <div className="entry-label">$PEPTARD — Solana Network</div>
         </div>
       )}
-      <div className="stage">
+
+      {/* PHASE 1 — girl screen */}
+      {entryPhase === 1 && (
+        <div className={`pre-screen girl-screen${fading ? ' fade-out' : ''}`}>
+          {/* stomach inject zone — stomach at ~(50%, 67%) */}
+          <div className="inject-zone-abs" style={{top:'55%',left:'40%'}} onClick={e => handleZoneClick(e, 2)}>
+            <div className="inject-btn">💉 Inject Here</div>
+            <div className="inject-arrow-line" />
+            <div className="inject-arrow-tip" />
+          </div>
+          <div className="entry-label">$PEPTARD — Solana Network</div>
+        </div>
+      )}
+
+      <div className="stage" style={{visibility: entryPhase < 2 ? 'hidden' : 'visible'}}>
         <div className="magazine">
           {PAGES.map((p, i) => (
             <div key={p.id} className={`spread ${getState(i)}`}>
