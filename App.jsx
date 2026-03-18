@@ -1091,6 +1091,78 @@ const PAGES = [
     )
   },
   {
+    id: "cover2",
+    label: "The Trench Issue",
+    render: () => (
+      <div className="cover" style={{height:"100%"}}>
+        <div className="cover-header">
+          <div className="cover-meta">
+            <span className="cover-issue">Vol. 1 — Issue 002 — The Trench Issue</span>
+          </div>
+          <span className="cover-issue">$0.00 / Free. Like your portfolio.</span>
+        </div>
+        <div className="rule-h thick" />
+        <div className="cover-masthead">PEPT<span>A</span>RD</div>
+        <div className="rule-h" />
+        <div className="cover-body" style={{flex:1}}>
+          <div className="cover-col-left">
+            <div>
+              <div className="cover-kicker">Also inside</div>
+            </div>
+            {[
+              { kicker: "Finance", hl: "The thesis hasn't changed. The account has. A forensic investigation." },
+              { kicker: "Wellness", hl: "Post-rug morning protocol: shower, inject, accumulate. No exceptions." },
+              { kicker: "Culture", hl: "GM. Down 90%. Still injecting. A 30-day diary." },
+            ].map((item, i) => (
+              <div key={i}>
+                <div className="rule-h" style={{marginBottom:8}} />
+                <div className="cover-kicker">{item.kicker}</div>
+                <div className="cover-hl" style={{marginTop:3}}>{item.hl}</div>
+              </div>
+            ))}
+          </div>
+          <div className="cover-center">
+            <div className="cover-hero-img" style={{flex:1}}>
+              <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:8,padding:16,textAlign:"center",position:"relative",zIndex:1,background:"rgba(0,0,0,0.45)",backdropFilter:"blur(2px)"}}>
+                <div style={{fontFamily:"var(--barlow)",fontSize:8,fontWeight:700,letterSpacing:3,textTransform:"uppercase",color:"rgba(255,255,255,0.3)",border:"1px solid rgba(255,255,255,0.15)",padding:"4px 10px"}}>Trench Correspondent, Year Three</div>
+                <div style={{fontFamily:"var(--cormorant)",fontSize:"clamp(9px,1.6vw,13px)",fontStyle:"italic",color:"rgba(255,255,255,0.6)",lineHeight:1.6,maxWidth:200}}>
+                  He has been in the trenches since 2021.<br />
+                  He has been in the peptides since 2023.<br />
+                  The account is down.<br />
+                  The protocol is not.<br />
+                  This is what we call a hedge.
+                </div>
+              </div>
+            </div>
+            <div className="cover-quote-block">
+              <div className="cover-quote-text">"The market is down. The peptides are not. This is called hedging."</div>
+              <div className="cover-quote-attr">— Anonymous degen, 4:17am, chart still open</div>
+            </div>
+          </div>
+          <div className="cover-col-right">
+            <div className="cover-kicker">Markets</div>
+            <div className="rule-h" style={{margin:"6px 0"}}/>
+            <div className="cover-hl" style={{fontSize:"clamp(14px,2.5vw,18px)",fontWeight:500,lineHeight:1.2}}>
+              He Ape'd In At The Top
+            </div>
+            <div className="cover-byline" style={{marginTop:4}}>The account is rekt. The protocol continues.</div>
+            <div className="rule-h" style={{margin:"12px 0"}}/>
+            <div className="cover-kicker" style={{marginBottom:4}}>Relationships</div>
+            <div className="cover-hl">"Liquidated" she said, like it was a bad thing.</div>
+            <div className="rule-h" style={{margin:"12px 0"}}/>
+            <div className="cover-kicker" style={{marginBottom:4}}>Philosophy</div>
+            <div className="cover-hl">Still accumulating. In peptides, specifically.</div>
+          </div>
+        </div>
+        <div className="rule-h thick" />
+        <div className="cover-footer">
+          <span className="cover-price">$PEPTARD — Solana Network</span>
+          <Barcode />
+        </div>
+      </div>
+    )
+  },
+  {
     id: "feature",
     label: "Feature",
     render: () => (
