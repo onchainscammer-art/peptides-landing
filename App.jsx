@@ -791,6 +791,109 @@ body { background: #111; font-family: var(--barlow-reg); }
   color: rgba(255,255,255,0.3);
   text-shadow: 0 1px 6px rgba(0,0,0,0.9);
 }
+
+/* ── SPREAD: LAB NOTES ── */
+.lab-spread {
+  background: rgba(248,246,241,0.82);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+.lab-header {
+  padding: 20px 28px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--ink);
+}
+.lab-header-title {
+  font-family: var(--barlow);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--blue);
+  font-weight: 600;
+}
+.lab-body {
+  padding: 20px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+.lab-entry {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.lab-entry:last-child { border-bottom: none; }
+.lab-entry-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.lab-entry-num {
+  font-family: var(--barlow);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--blue);
+}
+.lab-entry-title {
+  font-family: var(--barlow);
+  font-weight: 800;
+  font-size: clamp(16px, 2.8vw, 22px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+  line-height: 1;
+}
+.lab-meta {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.lab-meta-item {}
+.lab-meta-label {
+  font-family: var(--barlow);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.lab-meta-value {
+  font-family: var(--barlow);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.lab-copy {
+  font-family: var(--cormorant);
+  font-size: clamp(11px, 1.7vw, 13px);
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.lab-translation {
+  font-family: var(--cormorant);
+  font-size: clamp(11px, 1.7vw, 13px);
+  font-style: italic;
+  color: var(--blue);
+  line-height: 1.4;
+}
+.lab-translation strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--mid);
+  font-family: var(--barlow);
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
 @media (max-width: 768px) {
   .entry-screen { display: none; }
 }
@@ -1068,6 +1171,73 @@ const PAGES = [
                 <div className="sidebar-stat-label">{s.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "lab1",
+    label: "Lab Notes",
+    render: () => (
+      <div className="lab-spread" style={{height:"100%"}}>
+        <div className="lab-header">
+          <span className="lab-header-title">💉 Peptard Lab Notes</span>
+          <span style={{fontFamily:"var(--barlow)",fontSize:9,color:"var(--mid)",letterSpacing:1}}>Pg. 42</span>
+        </div>
+        <div className="lab-body">
+          <div className="lab-entry">
+            <div className="lab-entry-header">
+              <span className="lab-entry-num">#001</span>
+              <span className="lab-entry-title">CJC-1295 + Ipamorelin</span>
+            </div>
+            <div className="lab-meta">
+              <div className="lab-meta-item"><div className="lab-meta-label">Status</div><div className="lab-meta-value">Trending</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Use</div><div className="lab-meta-value">Sleep / Recovery</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Peptard Rating</div><div className="lab-meta-value" style={{color:"var(--blue)"}}>High Expectations</div></div>
+            </div>
+            <p className="lab-copy">CJC-1295 and Ipamorelin are usually stacked together because they signal the body to release more growth hormone — the combination extends the pulse rather than spikes it. People report better sleep, faster recovery, and body composition shifts that are difficult to attribute to anything specific. That's part of the appeal: it's working, probably.</p>
+            <p className="lab-translation"><strong>Peptard Translation</strong> couldn't sleep, couldn't recover, added both. sleeping now. coincidence noted.</p>
+          </div>
+          <div className="lab-entry">
+            <div className="lab-entry-header">
+              <span className="lab-entry-num">#002</span>
+              <span className="lab-entry-title">BPC-157</span>
+            </div>
+            <div className="lab-meta">
+              <div className="lab-meta-item"><div className="lab-meta-label">Status</div><div className="lab-meta-value">Standard Issue</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Use</div><div className="lab-meta-value">Injury / Repair</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Peptard Rating</div><div className="lab-meta-value" style={{color:"var(--blue)"}}>Trusted</div></div>
+            </div>
+            <p className="lab-copy">BPC-157 usually comes up when something feels off — injuries, soreness, or anything not recovering fast enough. It's associated with tissue repair and recovery, with people saying things bounce back quicker and feel more stable, though most of it is anecdotal. The appeal is simple: instead of waiting it out, you add something and assume it's being handled.</p>
+            <p className="lab-translation"><strong>Peptard Translation</strong> added BPC, issue resolved (mentally at least).</p>
+          </div>
+        </div>
+      </div>
+    )
+  },
+  {
+    id: "lab2",
+    label: "Lab Notes",
+    render: () => (
+      <div className="lab-spread" style={{height:"100%"}}>
+        <div className="lab-header">
+          <span className="lab-header-title">💉 Peptard Lab Notes</span>
+          <span style={{fontFamily:"var(--barlow)",fontSize:9,color:"var(--mid)",letterSpacing:1}}>Pg. 43</span>
+        </div>
+        <div className="lab-body">
+          <div className="lab-entry">
+            <div className="lab-entry-header">
+              <span className="lab-entry-num">#003</span>
+              <span className="lab-entry-title">Ozempic</span>
+            </div>
+            <div className="lab-meta">
+              <div className="lab-meta-item"><div className="lab-meta-label">Status</div><div className="lab-meta-value">Mainstream</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Use</div><div className="lab-meta-value">Appetite / Weight</div></div>
+              <div className="lab-meta-item"><div className="lab-meta-label">Peptard Rating</div><div className="lab-meta-value" style={{color:"var(--blue)"}}>Controversial</div></div>
+            </div>
+            <p className="lab-copy">Ozempic gained attention because it lowers appetite — people eat less, think about food less, and weight tends to follow. Reports usually mention smaller portions, less snacking, and a quieter relationship with food. It spread fast because instead of improving discipline, it reduces the need for it.</p>
+            <p className="lab-translation"><strong>Peptard Translation</strong> couldn't lock in so he turned hunger off.</p>
           </div>
         </div>
       </div>
