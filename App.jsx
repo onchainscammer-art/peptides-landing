@@ -1377,7 +1377,7 @@ export default function App() {
       {entryPhase === 1 && (
         <div className={`pre-screen girl-screen${fading ? ' fade-out' : ''}`}>
           {/* stomach inject zone — stomach at ~(50%, 67%) */}
-          <div className="inject-zone-abs" style={{top:'63%',left:'44%'}} onClick={e => handleZoneClick(e, 2)}>
+          <div className="inject-zone-abs" style={{top:'72%',left:'44%'}} onClick={e => handleZoneClick(e, 2)}>
             <div className="inject-btn">💉 Inject Here</div>
           </div>
           <div className="entry-label">$PEPTARD — Solana Network</div>
