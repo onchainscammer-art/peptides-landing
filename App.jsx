@@ -743,7 +743,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   background: #111 url('/peptard.jpg') center 35% / cover no-repeat;
 }
 .girl-screen {
-  background: #111 url('/girl2.jpg') center 12% / cover no-repeat;
+  background: #111 url('/girl2.jpg') center center / contain no-repeat;
 }
 
 .entry-masthead {
@@ -818,7 +818,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 /* mobile adjustments for entry screens */
 @media (max-width: 768px) {
   .guy-screen  { background-position: 70% 55%; }
-  .girl-screen { background-position: center 62%; }
+  .girl-screen { background-position: center 62%; background-size: cover; }
 }
 
 /* ── SPREAD: LAB NOTES ── */
