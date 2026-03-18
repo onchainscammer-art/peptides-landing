@@ -819,7 +819,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 @media (max-width: 768px) {
   .guy-screen  { background-position: 70% 55%; }
   .girl-screen { background-position: center 62%; background-size: cover; }
-  .inject-pos-guy { top: 44% !important; left: 47% !important; }
+  .inject-pos-guy { top: 44% !important; left: 41% !important; }
 }
 
 /* ── SPREAD: LAB NOTES ── */
