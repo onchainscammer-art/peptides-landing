@@ -1368,8 +1368,6 @@ export default function App() {
           {/* mouth inject zone — desktop ~(47%, 60%), mobile ~(20%, 51%) */}
           <div className="inject-zone-abs inject-pos-guy" style={{top:'52%',left:'53%'}} onClick={e => handleZoneClick(e, 1)}>
             <div className="inject-btn">💉 Inject Here</div>
-            <div className="inject-arrow-line" />
-            <div className="inject-arrow-tip" />
           </div>
           <div className="entry-label">$PEPTARD — Solana Network</div>
         </div>
@@ -1381,8 +1379,6 @@ export default function App() {
           {/* stomach inject zone — stomach at ~(50%, 67%) */}
           <div className="inject-zone-abs" style={{top:'63%',left:'44%'}} onClick={e => handleZoneClick(e, 2)}>
             <div className="inject-btn">💉 Inject Here</div>
-            <div className="inject-arrow-line" />
-            <div className="inject-arrow-tip" />
           </div>
           <div className="entry-label">$PEPTARD — Solana Network</div>
         </div>
