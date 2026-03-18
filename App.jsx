@@ -743,7 +743,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   background: #111 url('/peptard.jpg') center 35% / cover no-repeat;
 }
 .girl-screen {
-  background: #111 url('/girl2.jpg') center 65% / cover no-repeat;
+  background: #111 url('/girl2.jpg') center 12% / cover no-repeat;
 }
 
 .entry-masthead {
@@ -1365,7 +1365,7 @@ export default function App() {
         <div className={`pre-screen guy-screen${fading ? ' fade-out' : ''}`}>
           <div className="entry-masthead">PEPT<span>A</span>RD</div>
           {/* mouth inject zone — desktop ~(47%, 60%), mobile ~(20%, 51%) */}
-          <div className="inject-zone-abs" style={{top:'54%',left:'42%'}} onClick={e => handleZoneClick(e, 1)}>
+          <div className="inject-zone-abs" style={{top:'57%',left:'46%'}} onClick={e => handleZoneClick(e, 1)}>
             <div className="inject-btn">💉 Inject Here</div>
             <div className="inject-arrow-line" />
             <div className="inject-arrow-tip" />
@@ -1378,7 +1378,7 @@ export default function App() {
       {entryPhase === 1 && (
         <div className={`pre-screen girl-screen${fading ? ' fade-out' : ''}`}>
           {/* stomach inject zone — stomach at ~(50%, 67%) */}
-          <div className="inject-zone-abs" style={{top:'55%',left:'40%'}} onClick={e => handleZoneClick(e, 2)}>
+          <div className="inject-zone-abs" style={{top:'63%',left:'44%'}} onClick={e => handleZoneClick(e, 2)}>
             <div className="inject-btn">💉 Inject Here</div>
             <div className="inject-arrow-line" />
             <div className="inject-arrow-tip" />
