@@ -820,6 +820,7 @@ body { background: #111; font-family: var(--barlow-reg); }
   .guy-screen  { background-position: 70% 55%; }
   .girl-screen { background-position: center 62%; background-size: cover; }
   .inject-pos-guy { top: 44% !important; left: 41% !important; }
+  .inject-pos-girl { top: 78% !important; left: 44% !important; }
 }
 
 /* ── SPREAD: LAB NOTES ── */
@@ -1377,7 +1378,7 @@ export default function App() {
       {entryPhase === 1 && (
         <div className={`pre-screen girl-screen${fading ? ' fade-out' : ''}`}>
           {/* stomach inject zone — stomach at ~(50%, 67%) */}
-          <div className="inject-zone-abs" style={{top:'72%',left:'44%'}} onClick={e => handleZoneClick(e, 2)}>
+          <div className="inject-zone-abs inject-pos-girl" style={{top:'78%',left:'48%'}} onClick={e => handleZoneClick(e, 2)}>
             <div className="inject-btn">💉 Inject Here</div>
           </div>
           <div className="entry-label">$PEPTARD — Solana Network</div>
