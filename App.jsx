@@ -695,17 +695,17 @@ body { background: #111; font-family: var(--barlow-reg); }
 }
 
 .nav-btn {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.7);
-  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.95);
+  width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   transition: all 0.2s;
   font-family: var(--barlow);
 }
-.nav-btn:hover { background: rgba(255,255,255,0.15); color: white; }
+.nav-btn:hover { background: rgba(255,255,255,0.28); color: white; }
 .nav-btn:disabled { opacity: 0.2; cursor: default; }
 
 .page-indicators {
@@ -990,6 +990,10 @@ body { background: #111; font-family: var(--barlow-reg); }
   overflow: hidden;
   position: relative;
 }
+.fig-bottom img { object-position: center 70%; }
+@media (max-width: 768px) {
+  .fig-bottom img { object-position: center center; }
+}
 
 @media (max-width: 768px) {
   .stage {
@@ -1216,7 +1220,7 @@ const PAGES = [
               What is undeniable: the vial was labeled PEPTIDES. It was held at eye level. It was not put down.
             </p>
             <div className="fig-bottom">
-              <img src="/fig2.jpg" alt="Fig. 2" style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"center center", display:"block"}} />
+              <img src="/fig2.jpg" alt="Fig. 2" style={{width:"100%", height:"100%", objectFit:"cover", display:"block"}} />
             </div>
           </div>
         </div>
