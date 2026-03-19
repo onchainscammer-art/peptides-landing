@@ -1043,8 +1043,8 @@ body { background: #111; font-family: var(--barlow-reg); }
 `;
 
 const CA = "D3QRnYiRtAAnqNRf1KWGWvZkDQVtA2hEfCFYk837pump";
-const JUPITER = "https://jup.ag";
-const DEX = "https://dexscreener.com";
+const JUPITER = "https://jup.ag/swap/SOL-D3QRnYiRtAAnqNRf1KWGWvZkDQVtA2hEfCFYk837pump";
+const DEX = "https://dexscreener.com/solana/D3QRnYiRtAAnqNRf1KWGWvZkDQVtA2hEfCFYk837pump";
 const TG = "https://t.me";
 
 const Barcode = () => {
