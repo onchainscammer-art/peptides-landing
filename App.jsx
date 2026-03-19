@@ -1042,7 +1042,7 @@ body { background: #111; font-family: var(--barlow-reg); }
 }
 `;
 
-const CA = "PASTE_YOUR_CA_HERE";
+const CA = "D3QRnYiRtAAnqNRf1KWGWvZkDQVtA2hEfCFYk837pump";
 const JUPITER = "https://jup.ag";
 const DEX = "https://dexscreener.com";
 const TG = "https://t.me";
