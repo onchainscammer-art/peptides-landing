@@ -231,6 +231,43 @@ body { background: #111; font-family: var(--barlow-reg); }
   text-transform: uppercase;
   color: var(--mid);
 }
+.cover-ca-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 28px;
+  background: var(--ink);
+}
+.cover-ca-label {
+  font-family: var(--barlow);
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.cover-ca-addr {
+  font-family: var(--barlow);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.85);
+}
+.cover-ca-copy {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  font-family: var(--barlow);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.cover-ca-copy:hover { border-color: white; }
+.cover-ca-copy.done { color: var(--blue); border-color: var(--blue); }
 .barcode {
   display: flex;
   gap: 1.5px;
@@ -1025,7 +1062,7 @@ const PAGES = [
   {
     id: "cover",
     label: "Cover",
-    render: ({ onInject }) => (
+    render: ({ onInject, copied, onCopy }) => (
       <div className="cover" style={{height:"100%"}}>
         <div className="cover-header">
           <div className="cover-meta">
@@ -1034,6 +1071,11 @@ const PAGES = [
           <span className="cover-issue">$0.00 / Free on Solana</span>
         </div>
         <div className="rule-h thick" />
+        <div className="cover-ca-strip">
+          <span className="cover-ca-label">CA</span>
+          <span className="cover-ca-addr">{CA.length > 12 ? `${CA.slice(0,10)}...${CA.slice(-6)}` : CA}</span>
+          <button className={`cover-ca-copy${copied ? " done" : ""}`} onClick={onCopy}>{copied ? "Copied ✓" : "Copy"}</button>
+        </div>
         <div className="cover-masthead">PEPT<span>A</span>RD</div>
         <div className="rule-h" />
         <div className="cover-body" style={{flex:1}}>
@@ -1097,7 +1139,7 @@ const PAGES = [
   {
     id: "cover2",
     label: "The Trench Issue",
-    render: () => (
+    render: ({ copied, onCopy }) => (
       <div className="cover" style={{height:"100%"}}>
         <div className="cover-header">
           <div className="cover-meta">
@@ -1106,6 +1148,11 @@ const PAGES = [
           <span className="cover-issue">$0.00 / Free. Like your portfolio.</span>
         </div>
         <div className="rule-h thick" />
+        <div className="cover-ca-strip">
+          <span className="cover-ca-label">CA</span>
+          <span className="cover-ca-addr">{CA.length > 12 ? `${CA.slice(0,10)}...${CA.slice(-6)}` : CA}</span>
+          <button className={`cover-ca-copy${copied ? " done" : ""}`} onClick={onCopy}>{copied ? "Copied ✓" : "Copy"}</button>
+        </div>
         <div className="cover-masthead">PEPT<span>A</span>RD</div>
         <div className="rule-h" />
         <div className="cover-body" style={{flex:1}}>
